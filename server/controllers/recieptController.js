@@ -14,7 +14,7 @@ exports.handleReceiptUpload = async (req, res) => {
             return res.status(400).json({ error: "No file uploaded" });
         }
 
-        const { stageId, stageName, paymentAmount, title } = req.body;
+        const { stageId, stageName, paymentAmount } = req.body;
         const fileName = req.file.filename;
         const filePath = req.file.path;
 
@@ -24,7 +24,7 @@ exports.handleReceiptUpload = async (req, res) => {
                 { _id: id, 'paymentStages._id': stageId },
                 {
                     $set: {
-                        'paymentStages.$.receiptName': title || fileName,
+                        'paymentStages.$.receiptName':  fileName,
                         'paymentStages.$.receiptUrl': filePath,
                         'paymentStages.$.receiptUploadedAt': new Date()
                     }
@@ -40,7 +40,7 @@ exports.handleReceiptUpload = async (req, res) => {
         const receiptData = {
             stageName,
             paymentAmount: Number(paymentAmount),
-            receiptName: title || fileName,
+            receiptName:  fileName,
             receiptUrl: filePath,
             receiptUploadedAt: new Date()
         };
