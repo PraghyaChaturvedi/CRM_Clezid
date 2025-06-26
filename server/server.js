@@ -35,6 +35,9 @@ app.use('/quotation', quotationsRoute);
 app.use('/invoice', invoicesRoute);
 app.use('/receipt', receiptRoute);
 
+app.use('/', (req, res) => {
+    res.status(200).json({ message: "Server is running" });
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
