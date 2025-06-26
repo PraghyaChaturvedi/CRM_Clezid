@@ -21,7 +21,7 @@ export default function LeadsLandingPage() {
   const [isUpdating, setIsUpdating] = useState(false)
   const navigate = useNavigate()
 
-  const url = import.meta.env.VITE_API_URL || "http://localhost:8000";
+  const url = import.meta.env.VITE_API_URL ;
 
 
   useEffect(() => {
