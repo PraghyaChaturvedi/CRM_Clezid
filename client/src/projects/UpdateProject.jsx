@@ -483,7 +483,7 @@ export default function UpdateProject() {
 
           <div className="form-actions">
             <div className="additional-actions">
-              <button
+              {/* <button
                 type="button"
                 className="btn btn-outline"
                 onClick={() => {
@@ -492,7 +492,18 @@ export default function UpdateProject() {
               >
                 <Plus size={16} />
                 <span>Payment Details</span>
-              </button>
+              </button> */}
+
+
+               <button
+                  type="button"
+                  className="btn btn-outline"
+                  onClick={() => navigate(`/payment-details/${id}`)}
+                >
+                  
+                  <span> + Payment Details</span>
+                </button>
+
 
               {/* <button type="button" className="btn btn-outline" onClick={() => navigate(`/invoice/${id}`)}>
                 <FileText size={16} />
